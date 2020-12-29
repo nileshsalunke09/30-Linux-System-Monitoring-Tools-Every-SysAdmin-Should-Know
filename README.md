@@ -1,6 +1,3 @@
-# **Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know.**
-Nilesh Salunke.
-
 --------------------------------------------------------------------------------------------------------
 
 # **1. top – Process activity monitoring command.**

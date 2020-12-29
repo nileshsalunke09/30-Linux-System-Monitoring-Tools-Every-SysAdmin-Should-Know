@@ -22,7 +22,7 @@ Here is a list of useful hotkeys:
  
 --------------------------------------------------------------------------------------------------------
 
-# **2. htop is similar to the top command but allows you to scroll vertically and horizontally and much more.**
+# **2. htop - Process activity monitoring command.**
 
 htop is similar to the top command but allows you to scroll vertically and horizontally and much more.
 
@@ -528,8 +528,3 @@ Refer to strace man page for more information:
 ### # cat /proc/mounts
 
 --------------------------------------------------------------------------------------------------------
-
-
-
-
-

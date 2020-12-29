@@ -1,13 +1,13 @@
-# 30-Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know
+# **30-Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know.**
 Nilesh Salunke.
 
 --------------------------------------------------------------------------------------------------------
-# 1. top – Process activity monitoring command.
+
+# **1. top – Process activity monitoring command.**
 
 The top command displays Linux processes. It provides a dynamic real-time view of a running system i.e. actual process activity. By default, it displays the most CPU-intensive tasks running on the server and updates the list every five seconds.
 ### # top
 ![Screen Shot 2020-12-29 at 11.40.32 AM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 11.40.32 AM.png)
-
 
 Commonly Used Hot Keys With top Linux monitoring tools
 Here is a list of useful hotkeys:
@@ -23,42 +23,35 @@ Here is a list of useful hotkeys:
 - k : Issues kill command.                                                                                                                    
 - z : Turn on or off-color/mono
  
-
 --------------------------------------------------------------------------------------------------------
 
-
-# 2. htop is similar to the top command but allows you to scroll vertically and horizontally and much more.
+# **2. htop is similar to the top command but allows you to scroll vertically and horizontally and much more.**
 
 htop is similar to the top command but allows you to scroll vertically and horizontally and much more.
 
 ### # htop
 ![Screen Shot 2020-12-29 at 12.42.36 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.42.36 PM.png)
 
-
 --------------------------------------------------------------------------------------------------------
-# 3. mpstat.
+
+# **3. mpstat.**
 
 If you are using SMP (Multiple CPU) systems, use the mpstat command to display the utilization of each CPU individually. It reports processors related statistics.
 
 ### # mpstat 
-
 ![Screen Shot 2020-12-29 at 12.43.44 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.43.44 PM.png)
 
-
 --------------------------------------------------------------------------------------------------------
+
 # **4. sar**
 You can display today’s CPU activity, with the help of the sar command.
 
 ### # sar
-
 ![Screen Shot 2020-12-29 at 12.44.15 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.44.15 PM.png)
-
-
 
 Comparison of CPU utilization
 The sar command writes to standard output the contents of selected cumulative activity counters in the operating system. The accounting system, based on the values in the count and interval parameters. For example display comparison of CPU utilization; 2 seconds apart; 5 times, use:
 ### # sar -u 2 5
-
 ![Screen Shot 2020-12-29 at 12.46.07 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.46.07 PM.png)
 
 Where, “-u 2 5”: The following values are displayed:
@@ -69,8 +62,8 @@ Where, “-u 2 5”: The following values are displayed:
 - %iowait: Percentage of time that the CPU or CPUs were idle during which the system had an outstanding disk I/O request.
 - %idle: Percentage of time that the CPU or CPUs were idle and the system did not have an outstanding disk I/O request.
 
-
 --------------------------------------------------------------------------------------------------------
+
 # **5. vmstat – Virtual memory statistics**
 The vmstat command reports information about processes, memory, paging, block IO, traps, and CPU activity.
 ### # vmstat 
@@ -113,13 +106,15 @@ These are percentages of total CPU time.
 - wa: Time spent waiting for IO. Prior to Linux 2.5.41, shown as zero.
 
 --------------------------------------------------------------------------------------------------------
-# 6. w – Find out who is logged on and what they are doing.
+
+# **6. w – Find out who is logged on and what they are doing.**
 
 ### # w username
 ![Screen Shot 2020-12-29 at 12.47.19 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.47.19 PM.png)
 
 --------------------------------------------------------------------------------------------------------
-# 7. uptime.
+
+# **7. uptime.**
 uptime command can be used to see how long the server has been running. The current time, how long the system has been running, how many users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.
 ### # uptime
 ![Screen Shot 2020-12-29 at 12.47.46 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.47.46 PM.png)
@@ -127,11 +122,11 @@ uptime command can be used to see how long the server has been running. The curr
 1 can be considered as the optimal load value. The load can change from system to system. For a single CPU system, 1 – 3 and SMP systems 6-10 load value might be acceptable.
 
 --------------------------------------------------------------------------------------------------------
-# 8. ps – Displays the Linux processes.
+
+# **8. ps – Displays the Linux processes.**
 ps command will report a snapshot of the current processes. To select all processes use the -A or -e option:
 
 ### # ps -A
-
 ![Screen Shot 2020-12-29 at 12.49.08 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.49.08 PM.png)
 
 ps is just like the top command but provides more information.
@@ -169,11 +164,11 @@ u : Select all processes on a terminal, including those of other users
 x : Select processes without controlling ttys.
 
 --------------------------------------------------------------------------------------------------------
-# 9. free – Show Linux server memory usage.
+
+# **9. free – Show Linux server memory usage.**
 The free command shows the total amount of free and used physical and swap memory in the system, as well as the buffers used by the kernel.
 
 ### # free
-
 ![Screen Shot 2020-12-29 at 12.49.41 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.49.41 PM.png)
 
 ### # free -m or # #free -mt 
@@ -188,34 +183,35 @@ The free command can be used with the below options.
 -s switch activates continuous polling delay seconds apart. You may actually specify any floating point number for delay, usleep(3) is used for microsecond resolution delay times.
 
 --------------------------------------------------------------------------------------------------------
+
 # 10. iostat – Montor Linux average CPU load and disk activity.
 iostat command report Central Processing Unit (CPU) statistics and input/output statistics for devices, partitions, and network filesystems (NFS).
 ### # iostat
-
 ![Screen Shot 2020-12-29 at 12.50.09 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.50.09 PM.png)
 
 --------------------------------------------------------------------------------------------------------
-# 11. sar – Monitor, collect and report Linux system activity.
+
+# **11. sar – Monitor, collect and report Linux system activity.**
 sar command used to collect, report, and save system activity information.
 
 ### # sar -n DEV | more
-
 ![Screen Shot 2020-12-29 at 12.50.47 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.50.47 PM.png)
 
 ### # sar -n DEV -f /var/log/sa/sa24 | more  - The network counters from the 24th.
 ### # sar 4 5 - display real-time usage using sar.
 
 --------------------------------------------------------------------------------------------------------
-# 12. mpstat – Monitor multiprocessor usage on Linux.
+
+# **12. mpstat – Monitor multiprocessor usage on Linux.**
 
 mpstat command displays activities for each available processor, processor 0 being the first one.
 
 ### # mpstat -P ALL
-
-![Screen Shot 2020-12-29 at 12.51.22 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.51.22 PM.png)
+![]({{site.baseurl}}//Screen%20Shot%202020-12-29%20at%2012.51.22%20PM.png)
 
 --------------------------------------------------------------------------------------------------------
-# 13. netstat – Linux network and statistics monitoring tool.
+
+# **13. netstat – Linux network and statistics monitoring tool.**
 netstat command displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
 
 ### # netstat -tulpn

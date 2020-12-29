@@ -6,6 +6,7 @@ Nilesh Salunke.
 
 The top command displays Linux processes. It provides a dynamic real-time view of a running system i.e. actual process activity. By default, it displays the most CPU-intensive tasks running on the server and updates the list every five seconds.
 ### # top
+![Screen Shot 2020-12-29 at 11.40.32 AM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 11.40.32 AM.png)
 
 
 Commonly Used Hot Keys With top Linux monitoring tools
@@ -31,6 +32,8 @@ Here is a list of useful hotkeys:
 htop is similar to the top command but allows you to scroll vertically and horizontally and much more.
 
 ### # htop
+![Screen Shot 2020-12-29 at 12.42.36 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 12.42.36 PM.png)
+
 
 --------------------------------------------------------------------------------------------------------
 # 3. mpstat.

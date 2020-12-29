@@ -496,12 +496,15 @@ Run strace against /bin/foo and capture its output to a text file in output.txt:
 ### # strace -o output.txt /bin/foo
 
 
+
 You can strace the webserver process and see what it’s doing. For example, strace php5 fastcgi process, enter:
 ### # strace -p 22254 -s 80 -o /tmp/debug.lighttpd.txt
 
 
+
 To see only a trace of the open, read system calls, enter :
 ### # strace -e trace=open,read -p 22254 -s 80 -o debug.webserver.txt
+
 
 
 Where,

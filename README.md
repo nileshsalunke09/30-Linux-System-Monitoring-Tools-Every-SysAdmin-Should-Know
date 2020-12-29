@@ -216,3 +216,158 @@ netstat command displays network connections, routing tables, interface statisti
 
 ### # netstat -tulpn
 ### # netstat -nat
+
+--------------------------------------------------------------------------------------------------------
+
+# **14. pmap – Montor process memory usage on Linux.**
+pmap command report memory map of a process. Use this command to find out causes of memory bottlenecks.
+
+### # pmap -d PID
+
+To display process memory information for pid # 632, enter:
+### # pmap -d 632
+![Screen Shot 2020-12-29 at 1.11.12 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 1.11.12 PM.png)
+
+![Screen Shot 2020-12-29 at 1.13.00 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 1.13.00 PM.png)
+
+The last line is very important:
+
+- mapped: 152632K total amount of memory mapped to files
+- writeable/private: 1280K the amount of private address space
+- shared: 0K the amount of address space this process is sharing with others.
+
+The -x option can be used to provide information about the memory allocation and mapping types per mapping. The amount of resident, non-shared anonymous, and locked memory is shown for each mapping:
+![Screen Shot 2020-12-29 at 1.19.02 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 1.19.02 PM.png)
+![Screen Shot 2020-12-29 at 1.19.42 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 1.19.42 PM.png)
+
+--------------------------------------------------------------------------------------------------------
+
+# **15. ss – Network Statistics.**
+ss command use to dump socket statistics. It allows showing information similar to netstat. Please note that the netstat is mostly obsolete. Hence you need to use ss command. 
+
+To ss all TCP and UDP sockets on Linux:
+
+### # ss -t -a 
+
+OR
+
+### # ss -u -a
+![Screen Shot 2020-12-29 at 1.17.03 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 1.17.03 PM.png)
+
+Show all TCP sockets with process SELinux security contexts:
+
+### # ss -t -a -Z
+
+Show all newwork open ports:
+
+### # ss -l
+![Screen Shot 2020-12-29 at 1.21.42 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 1.21.42 PM.png)
+
+
+- Find out who is responsible for opening socket / port # 4949 using the ss command and grep command:
+### # ss -lp | grep port_number
+
+
+- Display All TCP Sockets:
+### # ss -t -a
+
+
+- Display All UDP Sockets:
+### # ss -u -a
+
+
+- Display All RAW Sockets:
+### # ss -w -a
+
+
+- Display All UNIX Sockets:
+### # ss -x -a
+
+
+- Display All Established SMTP Connections:
+### # ss -o state established '( dport = :smtp or sport = :smtp )'
+
+
+- Display All Established HTTP Connections:
+### # ss -o state established '( dport = :http or sport = :http )'
+
+
+- Find All Local Processes Connected To X Server:
+### # ss -x src /tmp/.X11-unix/*
+
+
+- List All The Tcp Sockets in State FIN-WAIT-1:
+### # ss -o state fin-wait-1 '( sport = :http or sport = :https )' dst 202.54.1/24
+
+
+
+### ***How to filter sockets using TCP states?***
+
+
+- For tcp ipv4
+### # ss -4 state FILTER-NAME-HERE 
+
+
+- For tcp ipv6
+### # ss -6 state FILTER-NAME-HERE
+
+Where FILTER-NAME-HERE can be any one of the following,
+
+- established
+- syn-sent
+- syn-recv
+- fin-wait-1
+- fin-wait-2
+- time-wait
+- closed
+- close-wait
+- last-ack
+- listen
+- closing
+- all : All of the above states
+- connected : All the states except for listen and closed
+- synchronized : All the connected states except for syn-sent
+- bucket : Show states, which are maintained as minisockets, i.e. time-wait and syn-recv.
+- big : Opposite to bucket state.
+
+--------------------------------------------------------------------------------------------------------
+
+# **16. iptraf – Get real-time network statistics on Linux**
+
+iptraf command is interactive colorful IP LAN monitor. It is an ncurses-based IP LAN monitor that generates various network statistics including TCP info, UDP counts, ICMP and OSPF information, Ethernet load info, node stats, IP checksum errors, and others. It can provide the following info in easy to read format:
+- Network traffic statistics by TCP connection
+- IP traffic statistics by network interface
+- Network traffic statistics by protocol
+- Network traffic statistics by TCP/UDP port and by packet size
+- Network traffic statistics by Layer2 address
+
+[Install IPTraf on a Centos / RHEL / Fedora Linux To Get Network Statistics.](https://www.cyberciti.biz/faq/install-iptraf-centos-redhat-fedora-linux/)
+
+--------------------------------------------------------------------------------------------------------
+
+# **17. tcpdump – Detailed network traffic analysis**
+
+tcpdump command is simple command that dump traffic on a network. However, you need good understanding of TCP/IP protocol to utilize this tool. For.e.g to display traffic info about DNS, enter:
+
+### # tcpdump -i eth1 'udp port 53'
+
+
+View all IPv4 HTTP packets to and from port 80, i.e. print only packets that contain data, not, for example, SYN and FIN packets and ACK-only packets, enter:
+
+### # tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+
+
+Show all FTP session to 202.54.1.5, enter:
+
+### # tcpdump -i eth1 'dst 202.54.1.5 and (port 21 or 20)
+
+
+Print all HTTP session to 192.168.1.5:
+
+### # tcpdump -ni eth0 'dst 192.168.1.5 and tcp and port http'
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+

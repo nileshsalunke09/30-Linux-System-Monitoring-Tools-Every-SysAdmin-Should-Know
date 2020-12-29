@@ -1,4 +1,4 @@
-# **30-Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know.**
+# **Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know.**
 Nilesh Salunke.
 
 --------------------------------------------------------------------------------------------------------
@@ -367,6 +367,171 @@ Print all HTTP session to 192.168.1.5:
 ### # tcpdump -ni eth0 'dst 192.168.1.5 and tcp and port http'
 
 --------------------------------------------------------------------------------------------------------
+
+# **18. atop – Advanced Linux system & process monitor**
+
+atop is a very powerful and an interactive monitor to view the load on a Linux system. It displays the most critical hardware resources from a performance point of view. You can quickly see CPU, memory, disk and network performance. It shows which processes are responsible for the indicated load concerning CPU and memory load on a process level.
+
+### # atop
+![Screen Shot 2020-12-29 at 2.34.16 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 2.34.16 PM.png)
+
+
+
+- To see active processes only.
+### # atop -a  -To see active processes only.
+
+
+- Display individual threads.
+### # atop -y
+
+
+- Display network-related process-info.
+### # atop -n
+
+
+- Display scheduling-related process-info.
+### # atop -s
+
+
+- Display various process-info (ppid, user/group, date/time).
+### # atop -v
+
+
+- Display command line per process.
+### # atop -c
+
+
+- Pass the following option to sort your process:
+
+      -C  sort processes in order of cpu-consumption (default)
+	  -M  sort processes in order of memory-consumption
+	  -D  sort processes in order of disk-activity
+	  -N  sort processes in order of network-activity
+	  -A  sort processes in order of most active resource (auto mode)
+
+[CentOS / RHEL: Install atop (Advanced System & Process Monitor) Utility](https://www.cyberciti.biz/faq/centos-redhat-linux-install-atop-command-using-yum/)
+
+--------------------------------------------------------------------------------------------------------
+
+# **19. monit – Process supervision**
+
+Monit is a free and open source software that acts as process supervision. It comes with the ability to restart services which have failed. You can use Systemd, daemontools or any other such tool for the same purpose. [This tutorial shows how to install and configure monit as Process supervision on Debian or Ubuntu Linux](https://www.cyberciti.biz/faq/how-to-install-and-use-monit-on-ubuntudebian-linux-server/).
+
+--------------------------------------------------------------------------------------------------------
+
+# **20. nethogs- Find out PIDs that using most bandwidth on Linux**
+
+NetHogs is a small but handy net top tool. It groups bandwidth by process name such as Firefox, wget and so on. If there is a sudden burst of network traffic, start NetHogs. You will see which PID is causing bandwidth surge.
+
+### # nethogs
+![Screen Shot 2020-12-29 at 2.44.36 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 2.44.36 PM.png)
+
+[Install nethogs using this link.](https://www.cyberciti.biz/faq/linux-find-out-what-process-is-using-bandwidth/)
+
+--------------------------------------------------------------------------------------------------------
+
+# **21. iftop – Show bandwidth usage on an interface by host**
+
+iftop command listens to network traffic on a given interface name such as eth0. It displays a table of current bandwidth usage by pairs of hosts.
+
+### # iftop
+![Screen Shot 2020-12-29 at 2.47.41 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 2.47.41 PM.png)
+
+
+[Install iftop using this link.](https://www.cyberciti.biz/faq/linux-find-out-what-process-is-using-bandwidth/)
+
+--------------------------------------------------------------------------------------------------------
+
+# **23. nmon – Linux systems administrator, tuner, benchmark tool**
+
+nmon is a Linux sysadmin’s ultimate tool for the tunning purpose. It can show CPU, memory, network, disks, file systems, NFS, top process resources and partition information from the cli.
+
+### # nmon
+![Screen Shot 2020-12-29 at 2.55.53 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 2.55.53 PM.png)
+
+--------------------------------------------------------------------------------------------------------
+
+# **24. glances – Keep an eye on Linux system**
+
+glances is an open source cross-platform monitoring tool. It provides tons of information on the small screen. It can also work in client/server mode.
+
+### # glances
+![]({{site.baseurl}}//Screen%20Shot%202020-12-29%20at%202.57.29%20PM.png)![Screen Shot 2020-12-29 at 2.57.29 PM.png]({{site.baseurl}}/Screen Shot 2020-12-29 at 2.57.29 PM.png)
+
+
+### # glances (option)
+
+Use the following hot keys to find tune your output:
+
+- a Sort processes automatically.
+- c Sort processes by CPU%.
+- m Sort processes by MEM%.
+- p Sort processes by name.
+- i Sort processes by I/O rate.
+- d Show/hide disk I/O stats.
+- f Show/hide file system stats.
+- n Show/hide network stats.
+- s Show/hide sensors stats.
+- y Show/hide hddtemp stats.
+- l Show/hide logs.
+- b Bytes or bits for network I/O.
+- w Delete warning logs.
+- x Delete warning and critical logs.
+- 1 Global CPU or per-CPU stats.
+- t View network I/O as combination.
+- u – View cumulative network I/O.
+
+
+Refresh information every 5 seconds:
+### # # glances -t 5
+
+
+To see all supported options:
+### # glances -h
+
+--------------------------------------------------------------------------------------------------------
+
+# **25. strace – Monitor system calls on Linux**
+
+strace is a useful diagnostic, instructional, and debugging tool. It can save lots of headache. System administrators, diagnosticians and trouble-shooters will find it invaluable for solving problems with programs for which the source is not readily available since they do not need to be recompiled in order to trace them. This is also useful to submit bug reports to open source developers.
+
+Run strace against /bin/foo and capture its output to a text file in output.txt:
+### # strace -o output.txt /bin/foo
+
+
+You can strace the webserver process and see what it’s doing. For example, strace php5 fastcgi process, enter:
+### # strace -p 22254 -s 80 -o /tmp/debug.lighttpd.txt
+
+
+To see only a trace of the open, read system calls, enter :
+### # strace -e trace=open,read -p 22254 -s 80 -o debug.webserver.txt
+
+
+Where,
+
+-o filename : Write the trace output to the file filename rather than to screen (stderr).
+
+-p PID : Attach to the process with the process ID pid and begin tracing. The trace may be terminated at any time by a keyboard interrupt signal (hit CTRL-C). strace will respond by detaching itself from the traced process(es) leaving it (them) to continue running. Multiple -p options can be used to attach to up to 32 processes in addition to command (which is optional if at least one -p option is given).
+
+-s SIZE : Specify the maximum string size to print (the default is 32).
+
+
+Refer to strace man page for more information:
+### # man strace
+
+--------------------------------------------------------------------------------------------------------
+
+# **26. /proc/ file system – Various Linux kernel statistics**
+
+/proc file system provides detailed information about various hardware devices and other Linux kernel information.
+
+### # cat /proc/cpuinfo
+### # cat /proc/meminfo
+### # cat /proc/zoneinfo
+### # cat /proc/mounts
+
+--------------------------------------------------------------------------------------------------------
+
 
 
 

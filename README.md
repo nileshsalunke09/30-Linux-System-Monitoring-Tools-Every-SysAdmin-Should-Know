@@ -8,16 +8,19 @@ The top command displays Linux processes. It provides a dynamic real-time view o
 
 Commonly Used Hot Keys With top Linux monitoring tools
 Here is a list of useful hotkeys:
-|Hot Key|  Usage                                                                                                                                  |                                                        
-|-------|-----------------------------------------------------------------------------------------------------------------------------------------|                                                                   
-|t      |Displays summary information off and on.                                                                                                 |
-|m      |Displays memory information off and on.                                                                                                  |
-|A      |Sorts the display by top consumers of various system resources. Useful for quick identification of performance-hungry tasks on a system. |
-|f      |Enters an interactive configuration screen for the top. Helpful for setting up top for a specific task.                                  |
-|o      |Enables you to interactively select the ordering within the top.                                                                         |
-|r      |Issues renice command.                                                                                                                   |
-|k      |Issues kill command.                                                                                                                     |
-|z      |Turn on or off-color/mono                                                                                                                |
+|Hot Key|  Usage                                                                                                                                                                                        
+
+- t :  Displays summary information off and on.                                                                                                 
+- m :  Displays memory information off and on.                                                                                                 
+- A :  Sorts the display by top consumers of various system resources. Useful for quick identification of performance-hungry tasks on a system. 
+
+- f :  Enters an interactive configuration screen for the top. Helpful for setting up top for a specific task.                                  
+
+- o :  Enables you to interactively select the ordering within the top.                                                                         
+- r :  Issues renice command.                                                                                                                  
+- k :  Issues kill command.                                                                                                                    
+- z :  Turn on or off-color/mono
+ 
 
 
 
@@ -186,23 +189,3 @@ netstat command displays network connections, routing tables, interface statisti
 
 # #netstat -tulpn
 # #netstat -nat
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

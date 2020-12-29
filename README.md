@@ -1,44 +1,43 @@
-# 30-Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know
-Tech Blog
+# **30-Linux-System-Monitoring-Tools-Every-SysAdmin-Should-Know**
+Nilesh Salunke.
 
-# 1. top – Process activity monitoring command.
+# **1. top – Process activity monitoring command.**
 The top command displays Linux processes. It provides a dynamic real-time view of a running system i.e. actual process activity. By default, it displays the most CPU-intensive tasks running on the server and updates the list every five seconds.
 # #top
 
 
 Commonly Used Hot Keys With top Linux monitoring tools
 Here is a list of useful hotkeys:
-|Hot Key|  Usage                                                                                                                                                                                        
+                                                                                                  
+- t : Displays summary information off and on.                                                                                                 
+- m : Displays memory information off and on.                                                                                                 
+- A : Sorts the display by top consumers of various system resources. Useful for quick identification of performance-hungry tasks on a system. 
 
-- t :  Displays summary information off and on.                                                                                                 
-- m :  Displays memory information off and on.                                                                                                 
-- A :  Sorts the display by top consumers of various system resources. Useful for quick identification of performance-hungry tasks on a system. 
+- f : Enters an interactive configuration screen for the top. Helpful for setting up top for a specific task.                                  
 
-- f :  Enters an interactive configuration screen for the top. Helpful for setting up top for a specific task.                                  
-
-- o :  Enables you to interactively select the ordering within the top.                                                                         
-- r :  Issues renice command.                                                                                                                  
-- k :  Issues kill command.                                                                                                                    
-- z :  Turn on or off-color/mono
+- o : Enables you to interactively select the ordering within the top.                                                                         
+- r : Issues renice command.                                                                                                                  
+- k : Issues kill command.                                                                                                                    
+- z : Turn on or off-color/mono
  
 
 
 
 
-# 2. htop is similar to the top command but allows you to scroll vertically and horizontally and much more.
+# **2. htop is similar to the top command but allows you to scroll vertically and horizontally and much more.**
 htop is similar to the top command but allows you to scroll vertically and horizontally and much more.
 
 # #htop
 
 
-# 3. mpstat
+# **3. mpstat**
 If you are using SMP (Multiple CPU) systems, use the mpstat command to display the utilization of each CPU individually. It reports processors related statistics.
 
 # #mpstat 
 
 
 
-# 4. sar
+# **4. sar**
 You can display today’s CPU activity, with the help of the sar command.
 
 # #sar
@@ -52,57 +51,71 @@ The sar command writes to standard output the contents of selected cumulative ac
 
 
 
-Where, “-u 2 5”: Report CPU utilization. The following values are displayed:
-%user: Percentage of CPU utilization that occurred while executing at the user level (application).
-%nice: Percentage of CPU utilization that occurred while executing at the user level with nice priority.
-%system: Percentage of CPU utilization that occurred while executing at the system level (kernel).
-%iowait: Percentage of time that the CPU or CPUs were idle during which the system had an outstanding disk I/O request.
-%idle: Percentage of time that the CPU or CPUs were idle and the system did not have an outstanding disk I/O request.
+Where, “-u 2 5”: The following values are displayed:
+
+- %user: Percentage of CPU utilization that occurred while executing at the user level (application).
+- %nice: Percentage of CPU utilization that occurred while executing at the user level with nice priority.
+- %system: Percentage of CPU utilization that occurred while executing at the system level (kernel).
+- %iowait: Percentage of time that the CPU or CPUs were idle during which the system had an outstanding disk I/O request.
+- %idle: Percentage of time that the CPU or CPUs were idle and the system did not have an outstanding disk I/O request.
 
 
-# 5. vmstat – Virtual memory statistics
+
+# **5. vmstat – Virtual memory statistics**
 The vmstat command reports information about processes, memory, paging, block IO, traps, and CPU activity.
 # #vmstat 
 
 Field Description For Vm Mode
+
 (a) procs are the process-related fields are:
-r: The number of processes waiting for run time.
-b: The number of processes in uninterruptible sleep.
+- r: The number of processes waiting for run time.
+- b: The number of processes in uninterruptible sleep.
+
+
 (b) memory is the memory-related fields are:
-swpd: the amount of virtual memory used.
-free: the amount of idle memory.
-buff: the amount of memory used as buffers.
-cache: the amount of memory used as cache.
+- swpd: the amount of virtual memory used.
+- free: the amount of idle memory.
+- buff: the amount of memory used as buffers.
+- cache: the amount of memory used as cache.
+
+
 (c) swap is swap-related fields are:
-si: Amount of memory swapped in from disk (/s).
-so: Amount of memory swapped to disk (/s).
+- si: Amount of memory swapped in from disk (/s).
+- so: Amount of memory swapped to disk (/s).
+
+
 (d) io is the I/O-related fields are:
-bi: Blocks received from a block device (blocks/s).
-bo: Blocks sent to a block device (blocks/s).
+- bi: Blocks received from a block device (blocks/s).
+- bo: Blocks sent to a block device (blocks/s).
+
+
 (e) the system is the system-related fields are:
-in: The number of interrupts per second, including the clock.
-cs: The number of context switches per second.
+- in: The number of interrupts per second, including the clock.
+- cs: The number of context switches per second.
+
+
 (f) CPU is the CPU-related fields are:
 These are percentages of total CPU time.
-us: Time spent running non-kernel code. (user time, including nice time)
-sy: Time spent running kernel code. (system time)
-id: Time spent idle. Prior to Linux 2.5.41, this includes IO-wait time.
-wa: Time spent waiting for IO. Prior to Linux 2.5.41, shown as zero.
+- us: Time spent running non-kernel code. (user time, including nice time)
+- sy: Time spent running kernel code. (system time)
+- id: Time spent idle. Prior to Linux 2.5.41, this includes IO-wait time.
+- wa: Time spent waiting for IO. Prior to Linux 2.5.41, shown as zero.
 
-# 6. w – Find out who is logged on and what they are doing.
+
+# **6. w – Find out who is logged on and what they are doing.**
 
 # #w username
 
 
 
-# 7. uptime.
+# **7. uptime.**
 uptime command can be used to see how long the server has been running. The current time, how long the system has been running, how many users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.
 # #uptime
 
 
 1 can be considered as the optimal load value. The load can change from system to system. For a single CPU system, 1 – 3 and SMP systems 6-10 load value might be acceptable.
 
-# 8. ps – Displays the Linux processes.
+# **8. ps – Displays the Linux processes.**
 ps command will report a snapshot of the current processes. To select all processes use the -A or -e option:
 
 # #ps -A
@@ -111,7 +124,7 @@ ps command will report a snapshot of the current processes. To select all proces
 
 ps is just like the top command but provides more information.
 
-# #ps -Al    - Show long format output.
+# #ps -Al   - Show long format output.
 
 # #ps -AlF  - To turn on extra full mode (it will show command-line arguments passed to process)
 
@@ -143,7 +156,7 @@ A : Select all processes
 u : Select all processes on a terminal, including those of other users
 x : Select processes without controlling ttys.
 
-# 9. free – Show Linux server memory usage.
+# **9. free – Show Linux server memory usage.**
 The free command shows the total amount of free and used physical and swap memory in the system, as well as the buffers used by the kernel.
 
 # #free
@@ -162,11 +175,11 @@ The free command can be used with the below options.
 -s switch activates continuous polling delay seconds apart. You may actually specify any floating point number for delay, usleep(3) is used for microsecond resolution delay times.
 
 
-# 10. iostat – Montor Linux average CPU load and disk activity.
+# **10. iostat – Montor Linux average CPU load and disk activity.**
 iostat command report Central Processing Unit (CPU) statistics and input/output statistics for devices, partitions, and network filesystems (NFS).
 # #iostat
 
-# 11. sar – Monitor, collect and report Linux system activity.
+# **11. sar – Monitor, collect and report Linux system activity.**
 sar command used to collect, report, and save system activity information.
 
 # #sar -n DEV | more
@@ -176,7 +189,7 @@ sar command used to collect, report, and save system activity information.
 # #sar -n DEV -f /var/log/sa/sa24 | more  - The network counters from the 24th.
 # #sar 4 5 - display real-time usage using sar.
 
-# 12. mpstat – Monitor multiprocessor usage on Linux.
+# **12. mpstat – Monitor multiprocessor usage on Linux.**
 
 mpstat command displays activities for each available processor, processor 0 being the first one.
 
@@ -184,7 +197,7 @@ mpstat command displays activities for each available processor, processor 0 bei
 
 
 
-# 13. netstat – Linux network and statistics monitoring tool.
+# **13. netstat – Linux network and statistics monitoring tool.**
 netstat command displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
 
 # #netstat -tulpn
